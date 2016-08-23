@@ -1,5 +1,6 @@
 package event;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import detail.ChatDetail;
@@ -7,7 +8,9 @@ import detail.LogInDetail;
 import detail.SearchDetail;
 import pages.ChatPage;
 import pages.LogInPage;
+import pages.LogoutPage;
 import pages.SearchPage;
+import until.WaitFor;
 
 public class FacebookEvent {
 	WebDriver driver;
@@ -18,6 +21,7 @@ public class FacebookEvent {
 	LogInPage logInPage;
 	SearchPage searchPage;
 	ChatPage chatPage;
+	LogoutPage logoutPage;
 
 	public FacebookEvent(WebDriver driver, LogInDetail loginDetail, SearchDetail searchDetail, ChatDetail chatDetail) {
 		this.driver = driver;
@@ -32,6 +36,7 @@ public class FacebookEvent {
 	}
 
 	public void navigateLogInForm() {
+		waiForLoginFormToAppear();
 		logInPage = new LogInPage(driver);
 
 	}
@@ -47,20 +52,59 @@ public class FacebookEvent {
 	}
 
 	public void searchFriend() {
+		waitForSearchTextBoxToAppear();
 		searchPage.enterSearchTextbox(searchdetail.getSearch());
 		searchPage.clickSearchButton();
-
+		waitForSearchResultToAppear();
 	}
 
 	public void navigateChat() {
 		chatPage = new ChatPage(driver);
 	}
-	
+
 	public void ChatFriend() {
 		chatPage.clickFriendChatButton();
 		chatPage.enterFormChatTextbox(chatdetail.getFormChat());
+	}
+
+	public void navigateLogout() {
+		logoutPage = new LogoutPage(driver);
+	}
+
+	public void Logout(){
+		logoutPage.clickOptionButton();
+		waitForLogoutButtonToAppear();
+		logoutPage.clickLogoutButton();
+	}
+
+	private void waiForLoginFormToAppear() {
+		// TODO Auto-generated method stub
+		new WaitFor(driver).presenceOfTheElement(By.id("email"));
 
 	}
 
+	private void waitForSearchTextBoxToAppear() {
+		// TODO Auto-generated method stub
+		new WaitFor(driver).presenceOfTheElement(By.id("q"));
+
+	}
+
+	private void waitForSearchResultToAppear() {
+		// TODO Auto-generated method stub
+		new WaitFor(driver).presenceOfTheElement(By.cssSelector(".clearfix._3m__"));
+
+	}
+
+	private void waitForLogoutButtonToAppear() {
+		// TODO Auto-generated method stub
+		new WaitFor(driver).presenceOfTheElement(By.cssSelector("._54nf li:nth-child(12)"));
+
+	}
+
+	// private void waitForCloseButtonHidden() {
+	// // TODO Auto-generated method stub
+	// new
+	// WaitFor(driver).hiddenOfTheElement(By.cssSelector(".ui-dialog-titlebar-close"));
+	// }
 
 }

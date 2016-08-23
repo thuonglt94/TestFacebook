@@ -18,7 +18,7 @@ public class ChatPage {
 	@FindBy(css = ".fbChatOrderedList.clearfix li:nth-child(1)")
 	private WebElement btnFriendChat;
 
-	@FindBy(css = "._1d4_")
+	@FindBy(css = "._1mf")
 	private WebElement txtFormChat;
 
 	public void clickFriendChatButton() {
@@ -26,8 +26,9 @@ public class ChatPage {
 	}
 
 	public void enterFormChatTextbox(String text) {
+		txtFormChat.click();
 		txtFormChat.sendKeys(text);
-		txtFormChat.sendKeys(Keys.ENTER);
+	//	txtFormChat.sendKeys(Keys.ENTER);
 
 	}
 

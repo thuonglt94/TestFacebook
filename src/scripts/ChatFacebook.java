@@ -1,5 +1,8 @@
 package scripts;
 
+import java.io.IOException;
+
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import builder.ChatDetailBuilder;
@@ -9,22 +12,24 @@ import detail.ChatDetail;
 import detail.LogInDetail;
 import detail.SearchDetail;
 import event.FacebookEvent;
+import until.PropertiesStore;
 
 @Test
 public class ChatFacebook extends ScriptBase {
-	public void test_Chat() throws InterruptedException {
+	public void test_Chat() throws InterruptedException, IOException {
 		LogInDetailBuilder logindetailbuilder = new LogInDetailBuilder();
 		SearchDetailBuilder searchdetailbuilder = new SearchDetailBuilder();
 		ChatDetailBuilder chatdatailbuilder = new ChatDetailBuilder();
 
-		logindetailbuilder.withEmail("01295464616").withPass("ngocthuongbaby");
+		logindetailbuilder.withEmail(PropertiesStore.getProperty("email")).withPass(PropertiesStore.getProperty("password"));
 		searchdetailbuilder.withSearch("ngọc thương");
-		chatdatailbuilder.withFormChat("hi. test chat facebook");
+		chatdatailbuilder.withFormChat(PropertiesStore.getProperty("message"));
 
 		LogInDetail logindetail = logindetailbuilder.loginbuild();
 		SearchDetail searchdetail = searchdetailbuilder.searchbuild();
 		ChatDetail chatdetail = chatdatailbuilder.chatbuild();
-
+	//	Assert.assertEquals(true, false);
+		
 		FacebookEvent user = new FacebookEvent(driver, logindetail, searchdetail, chatdetail);
 
 	
@@ -34,7 +39,8 @@ public class ChatFacebook extends ScriptBase {
 		and(user).navigateSearch();
 		when(user).searchFriend();
 		and(user).navigateChat();
-		then(user).ChatFriend();
-
+		when(user).ChatFriend();
+		// and(user).navigateLogout();
+		// then(user).Logout();
 	}
 }

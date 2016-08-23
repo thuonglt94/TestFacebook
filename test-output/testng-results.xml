@@ -2,20 +2,27 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="582007" started-at="2016-08-09T10:28:43Z" finished-at="2016-08-09T10:38:25Z">
+  <suite name="Default suite" duration-ms="588259" started-at="2016-08-23T02:25:40Z" finished-at="2016-08-23T02:35:28Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="582007" started-at="2016-08-09T10:28:43Z" finished-at="2016-08-09T10:38:25Z">
+    <test name="Default test" duration-ms="588259" started-at="2016-08-23T02:25:40Z" finished-at="2016-08-23T02:35:28Z">
       <class name="scripts.ChatFacebook">
-        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.ChatFacebook@7823a2f9]" name="setup" is-config="true" duration-ms="61177" started-at="2016-08-09T17:28:43Z" finished-at="2016-08-09T17:29:44Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:scripts.ChatFacebook@51565ec2]" name="setup" is-config="true" duration-ms="37533" started-at="2016-08-23T09:25:40Z" finished-at="2016-08-23T09:26:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="test_Chat()[pri:0, instance:scripts.ChatFacebook@7823a2f9]" name="test_Chat" duration-ms="520801" started-at="2016-08-09T17:29:44Z" finished-at="2016-08-09T17:38:25Z">
+        <test-method status="PASS" signature="test_Chat()[pri:0, instance:scripts.ChatFacebook@51565ec2]" name="test_Chat" duration-ms="550689" started-at="2016-08-23T09:26:18Z" finished-at="2016-08-23T09:35:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- test_Chat -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:scripts.ChatFacebook@7823a2f9]" name="teardown" is-config="true" duration-ms="13" started-at="2016-08-09T17:38:25Z" finished-at="2016-08-09T17:38:25Z">
+        <test-method status="PASS" signature="teardown(org.testng.ITestResult)[pri:0, instance:scripts.ChatFacebook@51565ec2]" name="teardown" is-config="true" duration-ms="20" started-at="2016-08-23T09:35:28Z" finished-at="2016-08-23T09:35:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=test_Chat status=SUCCESS method=ChatFacebook.test_Chat()[pri:0, instance:scripts.ChatFacebook@51565ec2] output={null}]]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
